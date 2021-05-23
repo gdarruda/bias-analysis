@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+    couchdb:
+        image: couchdb:3
+        ports:
+            - "5984:5984"
+        environment:
+            COUCHDB_USER: "${DYNACONF_COUCHDB_USER}"
+            COUCHDB_PASSWORD: "${DYNACONF_COUCHDB_PASSWORD}"
+        volumes:
+            - couchdb-data:/opt/couchdb/data
+volumes:
+    couchdb-data:
