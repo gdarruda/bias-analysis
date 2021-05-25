@@ -13,6 +13,15 @@ def get(url: str, params: dict, headers: dict) -> Response:
 
     return response
 
+def get_user_info(username: typing.List[str]) -> dict:
+
+    url = 'https://api.twitter.com/2/users/by'
+
+    params = {'usernames': ",".join(username)}
+    response = get(url, params=params, headers=headers)
+
+    return json.loads(response.text)['data']
+
 def load_tweets(user_id: int, 
                 since_id: int = None) -> list:
 
