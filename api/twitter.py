@@ -1,8 +1,10 @@
+from config import settings
+
 import json
+import typing
+
 import requests
 from requests.models import Response
-from config import settings
-import typing
 
 headers = {"Authorization": f"Bearer {settings.twitter.BEARER_TOKEN}"}
 
